@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">表白墙管理</a></li>
+    <li>查询帖子</li>
+</ul>
+<form class="form-inline">
+<div class="row alert alert-info" style="margin:0;padding:3px;">    
+</div>
+
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>编号</th>
+        <th>主键</th>
+        <th>发帖人</th>
+        <th>内容</th>
+        <th>发帖时间</th>
+        <th>点击量</th>
+        <th>操作</th>
+    </tr>
+    <#list postingsList as bean>
+    <tr>
+        <td>${bean_index+1}</td>
+        <td>${(bean.id)!}</td>
+        <td>${(bean.username)!}</td>
+        <td style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap">${(bean.detail)!}</td>
+        <td>${(bean.ptime)?string('yyyy-MM-dd HH:mm')}</td>
+        <td>${(bean.clicks)!}</td>
+        <th>
+        <a class="btn btn-primary btn-xs" href="/postings/add?uid=${uid}&id=${(bean.id)!}">修改</a>
+        <a class="btn btn-danger  btn-xs" href="/postings/del?uid=${uid}&id=${(bean.id)!}">删除</a>
+        <a class="btn btn-info btn-xs" href="/vcomment/list?id=${(bean.id)!}">查看评论</a>
+        </th>
+    </tr>
+    </#list>
+    
+</table>
+
+</form>
+</body>
+</html>

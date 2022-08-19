@@ -1,0 +1,32 @@
+/* pages/bought/bought.wxss */
+/* pages/shopping/shopping.wxss */
+.goodsname{
+  font-size: 60rpx;
+  font-weight: bold;
+  margin-right:10%
+}
+
+.photo{
+  width: 140rpx;
+  height: 140rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.cancel{
+  color: red;
+}
+
+.introduction{
+  font-style: oblique;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.price1{
+  font-size: 50rpx;
+  color: red;
+}

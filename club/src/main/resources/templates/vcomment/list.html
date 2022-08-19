@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">表白墙管理</a></li>
+    <li>查询帖子</li>
+    <li>查询评论</li>
+</ul>
+<form class="form-inline">
+<div class="row alert alert-info" style="margin:0;padding:3px;">
+    
+</div>
+
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>编号</th>
+        <th>主键</th>
+        <th>评论用户名</th>
+        <th>评论内容</th>
+        <th>评论时间</th>
+        <th>操作</th>
+    </tr>
+    <#list commentList as bean>
+    <tr>
+        <td>${bean_index+1}</td>
+        <td>${(bean.id)!}</td>
+        <td>${(bean.username)!}</td>
+        <td>${(bean.detail)!}</td>
+        <td>${(bean.ptime)?string('yyyy-MM-dd HH:mm')}</td>      
+        <th>
+        	<a class="btn btn-danger btn-xs" href="/vcomment/del?id=${(bean.id)!}&pid=${(bean.pid)!}">删除</a>
+        </th>
+    </tr>
+    </#list>
+    
+</table>
+
+</form>
+</body>
+</html>

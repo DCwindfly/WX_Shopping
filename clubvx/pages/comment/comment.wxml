@@ -1,0 +1,23 @@
+<!--pages/comment/comment.wxml-->
+<view class="postings">
+    <view wx:if="{{comment.photo!=null}}"><image src="{{api}}{{comment.photo}}" class="photo"></image></view>
+    <view wx:else ><image src="/images/postings-head.jpg" class="photo"></image></view>
+    <view class="title" style="margin-top: 15rpx;">{{comment.username}}</view>
+    <view class="ptime">{{comment.vxtime}}</view>
+    <view class="content">{{comment.detail}}</view>
+    <view class="clicks">点击量：{{comment.clicks}}</view>
+    <view>评论</view>
+</view>
+<view  class="postings" wx:for="{{comments}}" wx:key="item">
+    <view wx:if="{{comment.photo != null}}"><image src="{{api}}{{comment.photo}}" class="photo"></image></view>
+    <view wx:else ><image src="/images/postings-head.jpg" class="photo"></image></view>
+    <view class="title" style="margin-top: 15rpx;">{{item.username}}</view>
+    <view class="ptime">{{item.vxtime}}</view>
+    <view class="content">{{item.detail}}</view>
+</view>
+
+<view>
+
+<input  class="cinput" bindinput="onInput" value="{{inputValue}}" placeholder="发表你的看法"/>
+<button class="sbutton" bindtap="csubmit"  style="width: 134rpx; height: 90rpx; display: block; box-sizing: border-box; left: 600rpx; top: 1079rpx; position: fixed">发表</button>
+</view>

@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/activity/activity",
+    "pages/join/join",
+    "pages/moment/moment",
+    "pages/shopping/shopping",
+    "pages/map/map",
+    "pages/goods/goods",
+    "pages/bought/bought",
+    "pages/comment/comment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f00",
+    "navigationBarTitleText": "山科大学生社团",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "selectedColor": "#f00",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home-off.png",
+        "selectedIconPath": "images/home-on.png"
+      },
+      {
+        "pagePath": "pages/moment/moment",
+        "text": "校园墙",
+        "iconPath": "images/user_icon.png",
+        "selectedIconPath": "images/user_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "跳蚤市场",
+        "iconPath": "images/cart-off.png",
+        "selectedIconPath": "images/cart-on.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "images/user-off.png",
+        "selectedIconPath": "images/user-on.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

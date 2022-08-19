@@ -1,0 +1,15 @@
+<!-- 总结：
+    <view></view>容器，跟网页中的<div></div>用法一样
+    <image src="地址"/>图片，跟网页中的<img src=""/>用法一样
+    <text></text>用的很少，用来表示文字儿，跟网页中<span></span>用法一样
+
+    bindinput 绑定正在输入事件，当你正在写写写...，此时就会调用onInput函数
+    bindtap   绑定点击事件，当你点击了按钮，就会触发该函数
+-->
+<view class="contain">
+    <input class="input" bindinput="onInput" 
+        data-name="username" placeholder="请输入用户名"/>
+    <input class="input" bindinput="onInput" 
+        data-name="password" placeholder="请输入密码"/>
+    <button class="btn" bindtap="login">绑定账号/登录</button>
+</view>

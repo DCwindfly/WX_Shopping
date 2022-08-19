@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- js -> jquery -> bootstrap
+	js -> jquery -> ajaxupload上传文件/上传图片
+	
+	jquery.ajaxupload.js 基于 jquery 封装而来的
+	小众的上传图片插件，没有名气，因为简单，代码少，功能少，只有单个文件上传这一个功能
+	
+	百度研发的 webuploader 上传文件插件，重量级插件，功能非常丰富，单个文件、多个文件、视频...
+	问题：学习难，很难
+ -->
+<script src="../js/jquery.ajaxupload.js"></script>
+<script>
+	// js主函数   $就是jquery
+	window.onload = function () { // 这个地方的{}就代表函数体
+		$.ajaxUploadSettings.name = 'file'; // 设置上传的内容为file文件
+		// 从当前html文件中查找 id="upload-image" 这个标签。#就是id
+		// 给这个按钮绑定上传文件事件({}) // 在js中，{变量:变量值,变量:变量值,...} 1.代表js对象 2.代表函数体
+		$('#upload-image').ajaxUploadPrompt({ // 单词一定要检查一下，大小写，字母不能写错
+			url: '/logo',   // 指明java上传地址
+			// success变量名: function (回调参数) { 回调函数 }
+			success: function (data) { // 上传成功，当上传成功时，才会调用该回调函数
+				// alert(data); // data其实就是图片的保存地址
+				$('#upload-image').prev().val(data);
+				$('#upload-image').next().attr('src', data); // 图片保存地址设置到img路径中
+			},
+			error: function () { // 上传失败
+				alert('上传失败'); // js弹出提示语，会弹出一个框
+			}
+		});
+	}
+</script>
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">检测点管理</a></li>
+    <#if !bean??><li>添加地点</li></#if>
+    <#if  bean??><li>修改地点</li></#if>
+</ul>
+<form action="/map/add" method="post" class="form-horizontal">
+	<input type="hidden" name="uid" value="${uid}"/>
+	<input type="hidden" name="id" value="${(bean.id)!}"/>
+
+    <h5 class="page-header alert-info" style="padding:10px;margin:0 0 10px 0;">基本信息</h5>
+	<div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">检测点名称</label>
+        <div class="col-sm-6">
+            <input type="text" name="title" class="form-control input-sm" value="${(bean.title)!}"/>
+        </div>
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">纬度</label>
+        <div class="col-sm-6">
+            <input type="text" name="latitude" class="form-control input-sm" value="${(bean.latitude)!}"/>
+        </div>
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">经度</label>
+        <div class="col-sm-6">
+            <input type="text" name="longitude" class="form-control input-sm" value="${(bean.longitude)!}"/>
+        </div>
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">开始时间</label>
+        <div class="col-sm-6">
+            <input type="text" name="stime" class="form-control input-sm" value="${(bean.stime)!}"/>
+        </div>
+    </div>
+        <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">结束时间</label>
+        <div class="col-sm-6">
+            <input type="text" name="etime" class="form-control input-sm" value="${(bean.etime)!}"/>
+        </div>
+    </div>
+    
+
+    <div class="col-sm-3 col-sm-offset-4">
+        <input  type="submit" class="btn btn-success" value="保存"/>
+        <a class="btn btn-warning" href="/map/list?uid=${uid}">返回上一级</a>
+    </div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<view class="activity" bindtap="activity" data-item="{{item}}" 
+                        wx:for="{{activity}}" wx:key="item">
+    <image mode="aspectFill" class="logo" src="{{api}}{{item.logo}}"></image>
+    <view class="info">
+        <view><text class="title">{{item.activity}}</text>
+                                {{item.price}}元/人</view>
+        <view class="start">时间：{{item.start}}</view>
+        <view>{{item.detail}}</view>
+    </view>
+    <!-- data-aid="值/item.id" 对应 e.currentTarget.dataset.aid -->
+    <view class="join" bindtap="unjoin" data-aid="{{item.id}}">取消</view>
+</view>

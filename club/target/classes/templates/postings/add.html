@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+
+
+<script src="../js/jquery.ajaxupload.js"></script>
+<script>
+</script>
+
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">表白墙管理</a></li>
+    <li>修改帖子</li>
+</ul>
+<form action="/postings/add" method="post" class="form-horizontal">
+    <input type="hidden" name="uid" value="${uid}"/>
+    <input type="hidden" name="id" value="${(bean.id)!}">
+
+    <h5 class="page-header alert-info" style="padding:10px;margin:0 0 10px 0;">基本信息</h5>
+	<div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">修改内容</label>
+        <div class="col-sm-6">
+            <input type="text" name="detail" class="form-control input-sm" value="${(bean.detail)!}"/>
+        </div>
+    </div>
+    
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">修改点击量</label>
+        <div class="col-sm-6">
+            <input type="number" name="clicks" class="form-control input-sm" value="${(bean.clicks)!}"/>
+        </div>
+    </div>
+
+    <div class="col-sm-3 col-sm-offset-4">
+        <input  type="submit" class="btn btn-success" value="保存"/>
+        <a class="btn btn-warning" href="/postings/list?uid=${uid}">返回上一级</a>
+    </div>
+</form>
+
+</body>
+</html>

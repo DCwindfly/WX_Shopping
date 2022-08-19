@@ -1,0 +1,148 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* 全局css，所有的小程序页面都可以使用全局css样式
+  这里面写的css是给所有页面使用的！
+  px: 是像素，不能做适配，在小程序中，不会使用px这个单位，都用rpx！
+  rpx:是适配像素，根据手机屏幕大小做适配，大屏手机显示会大一点，小屏手机会小一点
+  class样式就是 .
+  写小程序代码，先学布局，然后再写js
+*/
+.contain{
+  padding: 20rpx;          /* : 是英文冒号，末尾要加 ; */
+}
+.input{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee; /* 线宽 实线 线色 */
+}
+.btn{
+  background: red;
+  color: white;
+  margin-top: 20rpx;
+}
+.activity{
+  overflow: hidden; /* 清除浮动，记得随手加 */
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx;
+  position: relative; /* 参照物 */
+}
+.join{
+  position: absolute; /* 相对于参照物进行定位 */
+  top: 20rpx;
+  right: 20rpx;
+  color: red;
+}
+.logo{
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.info{
+  overflow: hidden; /* 填充右侧剩余宽度 */
+}
+.title{
+  font-weight: bold;
+}
+.start{
+  margin-top: 10rpx;
+}
+.text_overflow_ellipsis{
+  white-space: nowrap;
+}
+.photo{
+  width: 130rpx;
+  height: 130rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.postings{
+  overflow: hidden;
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx;
+  position: relative; 
+}
+.ptime{
+  margin-top: 15rpx;
+  font-size: 30rpx;
+}
+.content{
+  word-break: break-all;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  font-size: smaller;
+}
+
+.head_img{
+  width: 100%;
+  height: 250rpx;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.clicks{
+  margin-left: 520rpx;
+  font-size: small;
+}
+.cmoments{
+  overflow: hidden;
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx;
+  position: relative; 
+}
+
+.cinput{
+  border-radius: 20rpx;
+  overflow: hidden;
+  width: 70%;
+  height: 45rpx;
+  padding: 20rpx 0;
+  background-color: rgb(229, 236, 236);
+  position: fixed;
+  bottom: 15rpx;
+  left: 20rpx;
+  margin-right: 100rpx;
+}
+.sbutton{
+  width: 134rpx;
+  height: 90rpx;
+  display: block;
+  box-sizing: border-box;
+  left: 600rpx;
+  top: 1079rpx;
+  position: fixed;
+  border-radius: 20rpx;
+  overflow: hidden;
+  height: 80rpx;
+  padding: 20rpx 0;
+  position: fixed;
+  bottom: 20rpx;
+  right: 0;
+  background: #14a1fd;
+  color: #fff;
+  border-radius: 70rpx;
+}
+.btn-post{
+  width: auto;
+  height: 90rpx;
+  display: block;
+  box-sizing: border-box;
+  left: 600rpx;
+  position: fixed;
+
+  overflow: hidden;
+  height: 80rpx;
+  position: fixed;
+  bottom: 20rpx;
+  background: #14a1fd;
+  color: #fff;
+  border-radius: 70rpx;
+  
+}

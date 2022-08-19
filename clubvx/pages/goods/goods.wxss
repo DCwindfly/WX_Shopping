@@ -1,0 +1,53 @@
+/* pages/goods/goods.wxss */
+.price1{
+  font-size: 50rpx;
+  color: red;
+}
+.introduction{
+  font-style: oblique;
+}
+
+/**数字加减器详细样式表**/
+.Add_Sub{
+  position:absolute;
+  width:160rpx;
+  left:150px;
+  height:60rpx;
+  top:54%;
+}
+.Goods_Num{
+  position: absolute;
+  top:0rpx;
+  left:45rpx;
+  width:70rpx;
+  height: 50rpx;
+  text-align: center;
+  font-size: 20px;
+}
+.subtractor{
+  position: absolute;
+  top:10%;
+  left:0%;
+  width:45rpx;
+  height: 45rpx;
+  border-radius: 50px;
+  color:#999997;
+  z-index: 99999;
+}
+.adder{
+  position: absolute;
+  top:10%;
+  right:0%;
+  width:45rpx;
+  height: 45rpx;
+  color:#fff;
+  border-radius: 50px;
+  z-index: 99999;
+}
+.Add_Sub_logo{
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0%;
+  left:0%;
+}

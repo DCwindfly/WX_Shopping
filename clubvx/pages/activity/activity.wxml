@@ -1,0 +1,15 @@
+<!-- mode="aspectFill" 它可以解决图片被挤扁的问题 -->
+<image style="width:100%" mode="aspectFill" 
+        src="{{api}}{{item.logo}}"></image>
+<view class="contain">
+    <view class="title">{{item.activity}}</view>
+    <view>报名费：{{item.price}}元/人</view>
+    <view>开始结束时间：{{item.start}}</view>
+    <view>发布时间：{{item.vxtime}}</view>
+    <view>{{item.detail}}</view>
+    <view wx:if="{{item.hot==1}}">类型：热门活动</view>
+    <view wx:else                >类型：普通活动</view>
+    
+    <button class="btn" wx:if="{{item.myid==null}}" bindtap="join">我要报名</button>
+    <button class="btn" wx:else disabled>已报名</button>
+</view>

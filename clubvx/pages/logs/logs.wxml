@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- 1.可以使用navigator打开小程序页面
+      2. util.redirect...打开小程序页面
+   -->
+  <navigator url="../../pages/join/join">
+    <view class="usermotto">
+      <text class="user-motto">{{motto}}</text>
+    </view>
+  </navigator>
+  <view class="usermotto" style="bottom: 500rpx;">
+  <navigator url="../../pages/map/map">
+      <text>核酸地图</text>
+  </navigator>
+  </view>
+  <view class="usermotto" style="bottom: 300rpx;">
+  <navigator url="../../pages/bought/bought">
+      <text>我的已购买</text>
+  </navigator>
+  </view>
+    <view class="usermotto" bindtap="logout" style="bottom: 200rpx;">
+      <text class="user-motto">退出登录</text>
+    </view>
+
+
+</view>

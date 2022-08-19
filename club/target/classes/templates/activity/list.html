@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">活动管理</a></li>
+    <li>查询活动</li>
+</ul>
+<form class="form-inline">
+<div class="row alert alert-info" style="margin:0;padding:3px;">
+
+   
+    <a class="btn btn-success" href="/activity/add?uid=${uid}">添加活动</a>
+    
+</div>
+
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>编号</th>
+        <th>主键</th>
+        <th>活动名称</th>
+        <th>报名费</th>
+        <th>活动介绍</th>
+        <th>活动时间</th>
+        <th>发布时间</th>
+        <th>发起人</th>
+        <th>是否热门</th>
+        <th>宣传图</th>
+        <th>操作</th>
+    </tr>
+    <#list retList as bean>
+    <tr>
+        <td>${bean_index+1}</td>
+        <td>${(bean.id)!}</td>
+        <td>${(bean.activity)!}</td>
+        <td>${(bean.price)!}元</td>
+        <td>${(bean.detail)!}</td>
+        <td>${(bean.start)!}</td>
+        <td>${(bean.ctime)?string('yyyy-MM-dd HH:mm')}</td>
+        <td>${(bean.username)!}</td>
+        <td>
+        	<#if bean.hot==1>热门活动</#if>
+        	<#if bean.hot==0>普通活动</#if>
+        </td>
+        <td>
+        	<a href="${(bean.logo)!}" target="_blank">
+        		${(bean.logo)!}
+        	</a>
+        </td>
+        <th>
+        	<!-- 传两个参数uid登录用户的id，id是活动id -->
+        	<a class="btn btn-primary btn-xs" href="/activity/add?uid=${uid}&id=${(bean.id)!}">修改</a>
+        	
+        	<a class="btn btn-danger  btn-xs" href="/activity/del?uid=${uid}&id=${(bean.id)!}">删除</a>
+        </th>
+    </tr>
+    </#list>
+</table>
+
+</form>
+</body>
+</html>

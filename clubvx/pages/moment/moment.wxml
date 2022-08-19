@@ -1,0 +1,19 @@
+<!--pages/moment/moment.wxml-->
+<view>
+    <image src="/images/postings-head.jpg" class="head_img"></image>
+    <!--帖子列表item-->
+    <view class="postings" bindtap="comment" data-item="{{item}}" wx:for="{{postings}}" wx:key="item">
+    <view wx:if="{{item.photo != null}}"><image src="{{api}}{{item.photo}}" class="photo"></image></view>
+    <view wx:else ><image src="/images/postings-head.jpg" class="photo"></image></view>
+        <view class="title" style="margin-top: 15rpx;">{{item.username}}</view>
+        <view class="ptime">{{item.vxtime}}</view>
+        <view class="content">{{item.detail}}</view>
+        <view class="clicks">点击量：{{item.clicks}}</view>
+    </view>
+</view>
+
+<view class="v-post">
+    <input style=" left: 12rpx; top: 964rpx"  class="cinput" bindinput="onInput" value="{{inputValue}}" placeholder="说说看吧"/>
+    <button class="btn-post" bindtap="csubmit"  style="position: fixed; left: 537rpx; top: 964rpx; width: 204rpx; height: 90rpx; display: block; box-sizing: border-box">发表</button>
+</view>
+

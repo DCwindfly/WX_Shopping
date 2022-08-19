@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../js/bootstrap.min.js"></script>
+
+
+<script src="../js/jquery.ajaxupload.js"></script>
+<script>
+  window.onload=function(){
+    $.ajaxUploadSettings.name='file';
+    //绑定上传事件，js中{}代表js对象{}/函数体
+    $('#upload-image').ajaxUploadPrompt({
+    url:'/logo',//上传地址
+    success:function(data){//上传成功,回调函数
+        // alert(data);
+        $('#upload-image').prev().val(data);
+        $('#upload-image').next().attr('src',data);//把地址设置到路径中
+    },
+    error:function(){
+        alert('上传失败');
+    }
+    });
+  }
+</script>
+
+</head>
+
+<body>
+<ul class="breadcrumb" style="margin:0;">
+    <li><a href="#">活动管理</a></li>
+    <#if !bean??><li>添加活动</li></#if>
+    <#if bean??><li>修改活动</li></#if>
+</ul>
+<form action="/activity/add" method="post" class="form-horizontal">
+    <input type="hidden" name="uid" value="${uid}"/>
+    <input type="hidden" name="id" value="${(bean.id)!}">
+
+    <h5 class="page-header alert-info" style="padding:10px;margin:0 0 10px 0;">基本信息</h5>
+	<div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">活动名称</label>
+        <div class="col-sm-6">
+            <input type="text" name="activity" class="form-control input-sm" value="${(bean.id)!}"/>
+        </div>
+    </div>
+    
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">报名费</label>
+        <div class="col-sm-6">
+            <input type="number" name="price" class="form-control input-sm" value="${(bean.price)!}"/>
+        </div>
+    </div>
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">活动介绍</label>
+        <div class="col-sm-6">
+            <input type="text" name="detail" class="form-control input-sm" value="${(bean.detail)!}"/>
+        </div>
+    </div>
+    
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">活动时间</label>
+        <div class="col-sm-6">
+            <input type="text" name="start" class="form-control input-sm" value="${(bean.start)!}"/>
+        </div>
+    </div>
+    
+    </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">是否热门</label>
+        <div class="col-sm-6">
+            <select  name="hot" class="form-control input-sm" >
+            <option value="1" <#if (bean.hot)??&&(bean.hot==1)>selected</#if> >热门活动</option>
+            <option value="0"<#if (bean.hot)??&&(bean.hot==0)>selected</#if>>普通活动</option>
+            </select>
+        </div>
+    </div>
+    
+      </div>
+    <div class="row col-sm-9 form-group">
+        <label class="col-sm-3 control-label">宣传图</label>
+        <div class="col-sm-6">
+            <input type="hidden" name="logo" class="form-control input-sm" value="${(bean.logo)!}"/>
+            <input id="upload-image" type="button" class="btn btn-success" value="上传图片"/>
+            <img src="${(bean.logo)!}" style="display:block" />
+        </div>
+    </div>
+
+    <div class="col-sm-3 col-sm-offset-4">
+        <input  type="submit" class="btn btn-success" value="保存"/>
+        <a class="btn btn-warning" href="/activity/list?uid=${uid}">返回上一级</a>
+    </div>
+</form>
+
+</body>
+</html>

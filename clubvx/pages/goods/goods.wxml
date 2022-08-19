@@ -1,0 +1,23 @@
+<!-- mode="aspectFill" 它可以解决图片被挤扁的问题 -->
+<image style="width:100%" mode="aspectFill" 
+        src="{{api}}{{item.photo}}"></image>
+<view class="contain">
+    <view class="title">{{item.goodsname}}</view>
+    <view><text class="price1">价格：{{item.price}}元</text></view>
+    <view class="introduction">商品介绍：{{item.introduction}}</view>
+    <view class="title">卖家:{{item.username}}</view>
+    <view>剩余数量:{{item.amount}}</view>
+    <view class="btn_view"><button class="btn" wx:if="{{item.myid==null}}" bindtap="buy">购买</button>
+    <button class="btn" wx:else disabled>已购买</button>
+    </view>
+</view>
+<view class="Add_Sub">
+  <text class='Goods_Num'>{{Goods_Num}}</text>
+  <view class="subtractor" bindtap='minusNum'>
+    <image class="Add_Sub_logo" src="images/减.png"></image>
+  </view>
+  <view class="adder" bindtap='addNum'>
+    <image class="Add_Sub_logo" src="images/加.png"></image>
+  </view>
+</view>
+
